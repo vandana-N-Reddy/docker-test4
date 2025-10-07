@@ -5,22 +5,23 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                sh 'echo "Build successful!"'
+                bat 'echo Hello from Jenkins Build Stage'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'python3 app.py'
+                bat 'java HelloWorld'
             }
         }
 
         stage('Archive') {
             steps {
-                echo 'Archiving results...'
-                archiveArtifacts artifacts: '/*.txt', fingerprint: true
+                echo 'Archiving artifacts...'
+                bat 'echo Done!'
             }
         }
     }
 }
+
